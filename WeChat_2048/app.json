@@ -1,0 +1,45 @@
+{
+  "pages":[
+    "pages/goto_Login/goto_Login",
+    "pages/home/home",
+    "pages/game/game",
+    "pages/User/User",
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle":"black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "color": "#111111",
+    "selectedColor": "#000000",
+    "backgroundColor": "#FFFFFF",
+    "position": "bottom",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "主页",
+        "iconPath": "/icon/bottom_navigation/home_down.png",
+        "selectedIconPath": "/icon/bottom_navigation/home_on.png"
+      },
+      {
+        "pagePath": "pages/game/game",
+        "text": "游戏",
+        "iconPath": "/icon/bottom_navigation/game_down.png",
+        "selectedIconPath": "/icon/bottom_navigation/game_on.png"
+      },
+      {
+        "pagePath": "pages/User/User",
+        "text": "我的",
+        "iconPath": "/icon/bottom_navigation/my_down.png",
+        "selectedIconPath": "/icon/bottom_navigation/my_on.png"
+      }
+    ]
+  }
+}

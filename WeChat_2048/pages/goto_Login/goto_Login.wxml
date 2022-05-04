@@ -1,0 +1,17 @@
+<view class="whole_view">
+  <view class="Title">
+    <text class="title">2048小程序</text>
+  </view>
+  <view class="title_txt">
+    <text decode="true" style="font-size: small;">　　　　
+     ———  带来快乐带来爱</text>
+  </view>
+
+  <view class="login_button">
+    <button type="primary" plain bindtap="getUserProfile">前往登陆授权</button>
+  </view>
+
+  <view class="img">
+    <image style="height: 300rpx;width: 100%;" src="https://s3.bmp.ovh/imgs/2021/12/7948c5f94c912084.png"></image>
+  </view>
+</view>

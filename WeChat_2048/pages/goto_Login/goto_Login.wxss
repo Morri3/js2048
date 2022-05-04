@@ -1,0 +1,26 @@
+/* pages/goto_Login/goto_Login.wxss */
+page{
+  background-image: url(https://pic3.zhimg.com/80/v2-179e32948f747c96885d424fc376d72a_720w.jpg);
+  width: 100%;
+}
+.Title{
+  margin-top: 100rpx;
+  display: flex;
+  justify-content: center;
+}
+.title{
+  font-size: 80rpx;
+  font-weight: 600;
+}
+.title_txt{
+  display: flex;
+  justify-content: center;
+}
+.img{
+  margin-top: 620rpx;
+  width: 100%;
+  height: fit-content;
+}
+.login_button{
+  margin-top: 200rpx;
+}

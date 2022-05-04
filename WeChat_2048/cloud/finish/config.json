@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "openapi": [
+    ]
+  },
+  "triggers": [
+    {
+      "name": "clear",
+      "type": "timer",
+      "config": "0 0 * * * * *"
+    }
+  ]
+}

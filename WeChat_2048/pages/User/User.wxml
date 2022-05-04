@@ -1,0 +1,43 @@
+<view class="user_info_wrap" style="height: 330rpx; width: 750rpx; display: block; box-sizing: border-box">
+  <view wx:if="{{hasUserInfo}}" class="user" >
+    <image class="user_img" src="{{userInfo.avatarUrl}}"></image>
+    <view class="user_info">
+            <image class="user_info_icon" src="{{userInfo.avatarUrl}}" />
+            <view class="user_info_name">{{userInfo.nickName}}</view>
+    </view>
+  </view>
+</view>
+
+<view class="user_item">
+  <view class="app_info_wrap" style="margin-top: 100rpx; font-family: unset; font-size: 15px; font-style: initial; font-weight: 800; color: black; position: absolute; left: 376rpx; top: -108rpx">
+        
+        <view>
+          <text decode="true">&nbsp;</text>
+        </view>
+        <navigator class="info_item">
+          <text style="margin-left: 100rpx;">联系客服</text>
+          <text class="right">></text>
+        </navigator>
+        <view>
+          <text decode="true">&nbsp;</text>
+        </view>
+        <navigator  class="info_item">
+          <text style="margin-left:100rpx;">查看隐私协议</text>
+          <text class="right">></text>
+        </navigator>
+        <view>
+          <text decode="true">&nbsp;</text>
+        </view>
+        <navigator  class="info_item">
+          <text style="margin-left: 100rpx;">查看用户协议</text>
+          <text class="right">></text>
+        </navigator>
+        <view>
+          <text decode="true">&nbsp;</text>
+        </view>
+        <navigator  class="info_item">
+          <text style="margin-left: 100rpx;">意见反馈</text>
+          <text class="right">></text>
+        </navigator>
+    </view>
+</view>
