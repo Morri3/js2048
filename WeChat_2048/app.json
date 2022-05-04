@@ -1,16 +1,17 @@
 {
   "pages":[
+    "pages/game/game",
     "pages/goto_Login/goto_Login",
     "pages/home/home",
-    "pages/game/game",
-    "pages/User/User",
+    
+    "pages/user/user",
     "pages/index/index",
     "pages/logs/logs"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
+    "navigationBarTitleText": "2048",
     "navigationBarTextStyle":"black"
   },
   "style": "v2",
@@ -35,7 +36,7 @@
         "selectedIconPath": "/icon/bottom_navigation/game_on.png"
       },
       {
-        "pagePath": "pages/User/User",
+        "pagePath": "pages/user/user",
         "text": "我的",
         "iconPath": "/icon/bottom_navigation/my_down.png",
         "selectedIconPath": "/icon/bottom_navigation/my_on.png"

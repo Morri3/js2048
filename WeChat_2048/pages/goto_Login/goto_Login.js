@@ -20,12 +20,13 @@ Page({
         })
         app.globalData.user_name = res.userInfo.nickName;
         app.globalData.user_head = res.userInfo.avatarUrl;
-        
+
     })
     app.globalData.has=true;
     app.globalData.user=this.data.userInfo;
     wx.switchTab({
-      url: '../User/User'
+      url: '../user/user'
     })
   }
+  
 })

@@ -1,1 +1,252 @@
-/* pages/game/game.wxss */
+.game-container {
+  background: #faf8ef;
+  color: #776e65;
+  font-family: "Helvetica Neue", Arial, sans-serif;/*字体*/
+  font-size: 18px;
+
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: space-between; */
+  box-sizing: border-box;
+}
+/*顶部*/
+.top {
+  text-align: center;/*文字居中*/
+  top: 6vh;
+  margin-top: 70px;
+}
+/*顶部左侧*/
+.topLeft {
+  width: 120px;
+  height: 100px;
+  box-sizing: border-box;/*padding和border的值不影响元素的宽高*/
+  float: left; /*左浮动*/
+  position: relative;/*相对定位*/
+  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.title {
+  font-size: 38px;
+  font-weight: 900;
+  position: relative;
+}
+.restartGane{
+  background-color: #a2cff3;
+  padding: 5px;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+}
+
+/*顶部右侧*/
+.topRight {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between; /*两边平均分布*/
+  align-items: center; /*测轴居中*/
+  float: right;
+}
+.curScore{
+  margin-right: 10px;
+}
+.curScoreText{
+  color: #fff;
+}
+.bestScoreText{
+  color: #eca84f;
+}
+.curScore,.bestScore {
+  width: 90px;
+  height: 90px;
+  background-color: #c9c0b7;
+  align-items: center;/*测轴居中*/
+  justify-content: center;
+  border-radius: 10px;
+  opacity: 0.7;/*透明度*/
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.curScoreTitle,.bestScoreTitle{
+  font-size: 20px;
+  font-weight: 800;
+}
+.curScoreText,.bestScoreText {
+  font-size: 26px;
+  font-weight: 800;
+}
+
+/*棋盘部分*/
+.middle {
+  width: 93vw;/*vw是视窗宽度的百分比*/
+  height: 93vw;
+  display: flex;
+  position: relative;
+  padding-top: 4vw;
+  padding-left: 1vw;
+  background: #bbada0;
+  border-radius: 10px;
+  margin-top: 30px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-touch-callout: none;/*禁用系统默认菜单*/
+  -ms-touch-callout: none;
+  -webkit-user-select: none;/*css控制文字不能被选中*/
+  -moz-user-select: none;
+  -ms-user-select: none;/*当触控事件发生在元素上时，不进行任何操作*/
+  -ms-touch-action: none;
+  touch-action: none;
+}
+.gridCell {
+  width: 19vw;
+  height: 19vw; 
+  margin-left: 3vw;
+  margin-bottom: 3vw;
+  float: left;
+  border-radius: 10px;
+  box-sizing: border-box;
+  background: rgba(238, 228, 218, 0.4);
+  overflow: hidden;/*溢出隐藏*/
+}
+/*格子*/
+.cell {
+  width: 19vw;
+  height: 19vw; 
+  line-height: 19vw;/*行高*/
+  position: relative;
+  font-size: 35px;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 10px;
+}
+/*各种数字时的格子样式*/
+.cell-2 { 
+  background: #eee4da; 
+}
+.cell-4 { 
+  background: #ede0c8; 
+}
+.cell-8 {
+  color: #f9f6f2;
+  background: #f2b179;
+}
+.cell-16 {
+  color: #f9f6f2;
+  background: #f59563;
+}
+.cell-32 {
+  color: #f9f6f2;
+  background: #f67c5f;
+}
+.cell-64 {
+  color: #f9f6f2;
+  background: #f65e3b;
+}
+.cell-128 {
+  color: #f9f6f2;
+  background: #edcf72;
+  font-size: 30px;
+}
+.cell-256 {
+  color: #f9f6f2;
+  font-size: 30px;
+  background: #edcc61;
+}
+.cell-512 {
+  color: #f9f6f2;
+  font-size: 30px;
+  background: #edc850;
+}
+.cell-1024 {
+  color: #f9f6f2;
+  font-size: 25px;
+  background: #edc53f;
+}
+.cell-2048 {
+  color: #f9f6f2;
+  font-size: 25px;
+  background: #edc22e;
+}
+
+/*蒙版*/
+.mask{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(206, 201, 201, 0.5);
+  z-index: 9000;
+}
+/*弹窗*/
+.modalDlg{
+  position: fixed;
+  /* left: 120rpx;
+  right: 120rpx;
+  top: 250rpx;
+  bottom: 250rpx; */
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: 270rpx 100rpx;
+
+  z-index: 9999;
+  background-color: #ccfbff;
+  border-radius: 36rpx;
+  display: flex;/*弹性布局*/
+  flex-direction: column;/*纵向排列*/
+  align-items: center;/*元素居中*/
+  justify-content: center;
+}
+/*弹窗标题*/
+.modaltitle{
+  font-size: 70rpx;
+  margin-top: 10rpx;
+  font-weight: 900; /*本质是字体加粗*/
+}
+/*弹窗中的文字*/
+.msgout{
+  font-size:40rpx;
+  font-weight: 400;
+  margin-top: 30rpx;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+/*一行多种颜色的字*/
+.twomsg{
+  display: flex;
+  flex-direction: row;
+  color: rgb(165, 38, 224);
+  font-weight: 600;
+}
+/*弹窗两个按钮外面的box*/
+.twobtn{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;/*平均分布*/
+
+  margin-top: 60rpx;
+}
+/*重新开始按钮box*/
+.btnrestart{
+  width: 130rpx;
+  height: 80rpx;
+  background: linear-gradient(#a2cff3, #f0dee7);
+  border-radius: 20rpx;
+}
+/*关闭按钮box*/
+.btnclose{
+  width: 210rpx;
+  height: 80rpx;
+  background: linear-gradient(#a2cff3, #f0dee7);
+  border-radius: 20rpx;
+}
