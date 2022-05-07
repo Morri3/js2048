@@ -1,0 +1,48 @@
+/* pages/game_entrance/entrance.wxss */
+page{
+  background-image: url(https://s1.328888.xyz/2022/05/07/4gSfm.jpg);
+  background-repeat:no-repeat;
+  background-size:cover;
+}
+.top_layout{
+  margin-top: 10%;
+  display: flex;
+  justify-content: center;
+}
+.game_pic{
+  height: 300px;
+}
+.Btn_layout{
+  display: flex;
+  justify-content: center;
+}
+.StartBtn{
+  width:375rpx;
+  height:200rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.StartBtn::after{
+  border: none;
+  border-radius: 0;
+  content: none;
+}
+.Btnimg {
+  /* position: absolute; */
+  height: 150rpx;
+  position: absolute;
+  width: 345rpx;
+}
+
+.btn_text{
+  color: #fff;
+  font-size: 50rpx;
+  font-weight: 700;
+  z-index: 1;
+}
+
+.btn-hover-opacity {
+  opacity: .8;
+}

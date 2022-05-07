@@ -1,12 +1,17 @@
-// pages/home/home.js
+// pages/game_entrance/entrance.js
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
 
   },
+
+  click:function(){
+    wx.navigateTo({
+      url: '/pages/game/game',
+    })
+  },
+
+
 
   /**
    * 生命周期函数--监听页面加载

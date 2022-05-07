@@ -25,7 +25,7 @@ Page({
     app.globalData.has=true;
     app.globalData.user=this.data.userInfo;
     wx.switchTab({
-      url: '../user/user'
+      url: '../User/User'
     })
   }
   

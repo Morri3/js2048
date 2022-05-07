@@ -1,10 +1,9 @@
 {
   "pages":[
-    "pages/game/game",
     "pages/goto_Login/goto_Login",
-    "pages/home/home",
-    
-    "pages/user/user",
+    "pages/game_entrance/entrance",
+    "pages/game/game",
+    "pages/User/User",
     "pages/index/index",
     "pages/logs/logs"
   ],
@@ -24,19 +23,13 @@
     "borderStyle": "black",
     "list": [
       {
-        "pagePath": "pages/home/home",
-        "text": "主页",
-        "iconPath": "/icon/bottom_navigation/home_down.png",
-        "selectedIconPath": "/icon/bottom_navigation/home_on.png"
-      },
-      {
-        "pagePath": "pages/game/game",
+        "pagePath": "pages/game_entrance/entrance",
         "text": "游戏",
         "iconPath": "/icon/bottom_navigation/game_down.png",
         "selectedIconPath": "/icon/bottom_navigation/game_on.png"
       },
       {
-        "pagePath": "pages/user/user",
+        "pagePath": "pages/User/User",
         "text": "我的",
         "iconPath": "/icon/bottom_navigation/my_down.png",
         "selectedIconPath": "/icon/bottom_navigation/my_on.png"
