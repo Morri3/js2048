@@ -8,4 +8,4 @@
     <view class="btn_text" >开始游戏</view>
   </view>
 </view>
-<view class="test">{{msg.gender[0].name}}</view><!--测试用-->
+<view class="test">{{msg.u_username}}</view><!--测试用-->
