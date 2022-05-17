@@ -10,4 +10,7 @@ router.get('/get/:u_username/:u_pwd',userRouter.get);//带参数
 router.get('/getall',userRouter.getall);
 //添加用户
 router.post('/adduser',userRouter.adduser)
+//查找用户
+router.get('/searchUser',userRouter.searchUser)
+
 module.exports = router;

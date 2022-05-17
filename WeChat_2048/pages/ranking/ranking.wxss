@@ -33,6 +33,7 @@ page{
 }
 .ranking_no{
   display: flex;
+  width: 100rpx;
   align-items: center;
   font-size: 80rpx;
   font-weight:900;
@@ -64,7 +65,7 @@ page{
   align-items: center;
   font-size: 40rpx;
   font-weight:600;
-  margin-left: 140rpx;
+  margin-left: 110rpx;
   width: 140rpx;
 }
 .fen{

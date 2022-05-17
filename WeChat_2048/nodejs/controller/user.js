@@ -51,7 +51,7 @@ module.exports.getall = async (req,res) =>{
 //获取权限后添加用户
 module.exports.adduser = async (req,res) =>{
   var msg  = JSON.parse(req.body.msg)
-  console.log(msg)
+  // console.log(msg)
   //空白字段
   var sql="insert into user(user_name,user_img,max_grade,cur_grade) values(?,?,0,0);"; //sql语句
   var params = [msg.user_name,msg.user_img]
@@ -69,9 +69,30 @@ module.exports.adduser = async (req,res) =>{
         data: '添加用户成功',
         msg: result
       })
-      console.log("success ",result)
+      // console.log("success ",result)
     }
   });
 }
 
-
+//查找用户
+module.exports.searchUser = async (req,res) =>{
+  let sql="select id from user where user_name = ?;" //sql语句
+  var name = req.query.name;
+  pool.query(sql,name,function(error, result){
+    if(error) { //有错误
+      res.json({
+        status: "400",
+        data: '查询用户失败',
+        msg: ''
+      })
+      console.log("查询用户失败")
+    }else { //成功
+      res.json({
+        status: "200",
+        data: '查询用户成功',
+        msg: result
+      })
+      console.log("查询成功，结果是: ",result)
+    }
+  });
+}

@@ -1,10 +1,10 @@
 // pages/goto_Login/goto_Login.js
 var app = getApp()
-var zyy_is = false;
+
 Page({
 
   data: {
-       userInfo:{}
+      userInfo:{}
   },
   onLoad: function () {
 
@@ -26,8 +26,8 @@ Page({
         "Content-Type": "application/x-www-form-urlencoded"
       },
       method:'POST',
-      success: (res) =>{
-       console.log(res)
+      success: () =>{
+       console.log("添加成功")
       },
       fail:() =>{
         console.log("添加失败")
@@ -35,6 +35,39 @@ Page({
     })
   },
 
+  searchUser:(user_name) =>{
+    var name  = user_name
+    var flag = false
+    let resultpromise = new Promise(function(resolve, reject){
+      wx.request({
+        url: 'http://127.0.0.1:3000/user/searchUser',
+        data:{
+          name
+        },
+        header:{
+          'content-type': 'application/json'
+        },
+        method:'GET',
+        success: (res) =>{
+          if(res.data.msg.length != 0){
+            var id = res.data.msg[0].id
+            app.globalData.user_id = id
+            flag = true
+          }
+          else{
+            flag = false
+          }
+          resolve(flag)
+        },
+        fail:() =>{
+          reject(flag)
+        }
+      })     
+    })
+
+    return resultpromise
+
+  },
 
   async getUserProfile(e) {
     await wx.getUserProfile({
@@ -47,13 +80,19 @@ Page({
         })
         app.globalData.user_name = res.userInfo.nickName;
         app.globalData.user_head = res.userInfo.avatarUrl;
-        //添加到数据库
-        this.addUser(res.userInfo.nickName,res.userInfo.avatarUrl)
+        //查询用户是否已经存在
+        var promise = this.searchUser(res.userInfo.nickName)
+        promise.then((data) =>{
+          //如果是新注册用户添加到数据库
+          if(data == false){
+            this.addUser(res.userInfo.nickName,res.userInfo.avatarUrl)
+          }
+        })
     })
     app.globalData.has=true;
     app.globalData.user=this.data.userInfo;
     wx.switchTab({
-      url: '../User/User'
+      url: '../game_entrance/entrance'
     })
   }
   
