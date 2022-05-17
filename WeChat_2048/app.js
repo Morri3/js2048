@@ -20,6 +20,7 @@ App({
     amileader:false,
     open_id:'',
     has:false,
-    user: []
+    user: [],
+    user_id:0,
   }
 })

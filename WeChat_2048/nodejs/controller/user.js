@@ -1,31 +1,5 @@
 let { pool } = require("../database/dbconfig.js")
 
-//添加用户
-module.exports.add = async (req,res) => {
-  // console.log(req.params.id) //获得参数id
-  console.log(req.body) //获得请求体
-  let params = [ //sql语句参数进行处理
-    req.body.u_username?req.body.u_username:"",
-    req.body.u_pwd?req.body.u_pwd:"",
-    req.body.u_name?req.body.u_name:""
-  ]
-  var sql="insert into user(u_username,u_pwd,u_name) values(?,?,?);"; //sql语句
-  pool.query(sql,params,(error, result)=>{ //第一个参数sql语句，第二个参数是sql语句的参数
-    if(error) { //有错误
-      res.json({
-        status: "400",
-        data: '添加用户失败'
-      })
-      console.log("添加用户失败")
-    }else { //成功
-      res.json({
-        status: "200",
-        data: '添加用户成功'
-      })
-      console.log("添加用户成功")
-    }
-  });
-}
 
 //查询用户（还没有作是否存在于db中等判断）
 module.exports.get = (req,res) =>{
@@ -75,12 +49,13 @@ module.exports.getall = async (req,res) =>{
 }
 
 //获取权限后添加用户
-module.exports.add_user = async (req,res) =>{
-
+module.exports.adduser = async (req,res) =>{
+  var msg  = JSON.parse(req.body.msg)
+  console.log(msg)
   //空白字段
-
   var sql="insert into user(user_name,user_img,max_grade,cur_grade) values(?,?,0,0);"; //sql语句
-  pool.query(sql,function(error, result){
+  var params = [msg.user_name,msg.user_img]
+  pool.query(sql,params,function(error, result){
     if(error) { //有错误
       res.json({
         status: "400",
@@ -91,7 +66,7 @@ module.exports.add_user = async (req,res) =>{
     }else { //成功
       res.json({
         status: "200",
-        data: '查询用户成功',
+        data: '添加用户成功',
         msg: result
       })
       console.log("success ",result)
