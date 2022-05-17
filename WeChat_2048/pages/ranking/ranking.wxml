@@ -1,0 +1,21 @@
+<view class="topview">
+  <image class="topview_img" src="../../icon/rank.png"></image>
+</view>
+
+<view class="rankingview">
+  <view class="user" wx:for="{{user}}" wx:for-item="item" wx:for-index="index">
+    <view class="ranking_no">
+      {{index + 1}}
+    </view>
+    <view class="imgview">
+      <image class="user_img" src="{{item.user_img}}"></image>
+    </view>
+    <view class="user_name">
+      {{item.user_name}}
+    </view>
+    <view class="score">
+      {{item.max_grade}}
+    </view>
+    <view class="fen">分</view>
+  </view>
+</view>

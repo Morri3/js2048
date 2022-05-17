@@ -16,6 +16,13 @@
           "name": "游戏入口",
           "pathName": "pages/game_entrance/entrance",
           "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "排行榜ui",
+          "pathName": "pages/ranking/ranking",
+          "query": "",
           "scene": null,
           "launchMode": "default"
         }

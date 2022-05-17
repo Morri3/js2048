@@ -5,7 +5,8 @@
     "pages/game/game",
     "pages/User/User",
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/ranking/ranking"
   ],
   "window":{
     "backgroundTextStyle":"light",

@@ -11,34 +11,21 @@ Page({
     })
   },
 
+
+  click_ranking(){
+    wx.navigateTo({
+      url: '/pages/ranking/ranking'
+    })
+  },
+
   /*生命周期函数--监听页面加载*/
   onLoad: function (options) {
-    const u_username='aasg'
-    const u_pwd='123855'
-    wx.request({
-      method:'GET', //请求方式（默认为GET请求）
-      url:'http://127.0.0.1:3000/user/get/'+u_username+'/'+u_pwd, //服务器接口地址(这里带参数)
-      // data:{ //请求的参数
-      //   u_username:u_username,
-      //   u_pwd:u_pwd
-      // },
-      header:{
-        'content-type':'application/json'
-      },
-      //接口调用成功的回调函数
-      success:res=>{ //res表示服务器响应信息
-        console.log(res.data)
-        this.setData({
-          msg: res.data.msg
-        })
-        console.log(this.data.msg)
-      }
-    })
+   
   },
 
   /*生命周期函数--监听页面初次渲染完成*/
   onReady: function () {
-
+    
   },
 
   /**
