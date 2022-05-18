@@ -40,7 +40,13 @@ Manager.prototype = {
     //direction分别为 0:上, 1:右, 2:下, 3:左
     var curList = this.formList(direction);//得到滑动生成的list数组
     var list = this.merge(curList);//合并相同数字的格子，list是合并后的棋盘数组
-    var res = [[],[],[],[]];//局部变量
+    // var res = [[],[],[],[]];//局部变量
+    var res = [];//局部变量
+    if(this.size === 4){
+      res = [[],[],[],[]];
+    }else if(this.size===5){
+      res = [[],[],[],[],[]];
+    }
     //滑动合并数字后更新棋盘的格子
     for(var i = 0; i < this.size; i++) {
       for(var j = 0; j < this.size; j++) {
@@ -66,7 +72,12 @@ Manager.prototype = {
   },
   //根据滑动方向生成list的四个数组
   formList(direction) {
-    var list = [[], [], [], []];
+    var list=[];
+    if(this.size===4){
+      list = [[], [], [], []];
+    }else if(this.size===5){
+      list = [[], [], [], [], []];
+    }
     //以该棋盘为例：
       //0 2 0 2
       //2 0 0 2

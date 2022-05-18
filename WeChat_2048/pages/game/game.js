@@ -1,9 +1,11 @@
 const app = getApp() // 获取应用实例
 var Manager = require("./manager.js"); //引用manager.js
+var util = require('../../utils/util.js'); //引用util.js
 
 //设定在游戏中点击顶部导航栏返回到上一页，游戏成绩不记录数据库
 Page({
   data: {
+    size: 4,//棋盘大小
     hidden: false, //是否显示加载中画面
     grids: [], //二维数组表示棋盘
     score: 0, //当前分数
@@ -21,10 +23,9 @@ Page({
 
   //游戏开始函数
   start() {
-    var manager = new Manager(4); //Manager是整个棋盘的管理类
+    var manager = new Manager(this.data.size); //Manager是整个棋盘的管理类
     this.setData({
       manager: manager, //this.data赋值manager，这里this.data.manager不能用manager的父类型的方法和属性
-      // maxScore: wx.getStorageSync('maxScore') //缓存获取最高分
     });
     this.data.manager.__proto__ = manager.__proto__; //让this.data中的manager对象能使用manager对象的父类型的方法和属性
 
@@ -98,8 +99,8 @@ Page({
   updateGric(data) {
     //取当前这一刻的最好成绩（即棋盘中存在的最大数字）
     var max = 0; //最大值
-    for (var i = 0; i < 4; i++) {
-      for (var j = 0; j < 4; j++) {
+    for (var i = 0; i < this.data.size; i++) {
+      for (var j = 0; j < this.data.size; j++) {
         if (data[i][j] !== "" && data[i][j] > max) { //当前格子不为空且数字大于max
           max = data[i][j]; //找到当前棋盘中最大的，设置为当前成绩
         }
@@ -145,6 +146,8 @@ Page({
 
     //保存当前分数到数据库
     this.saveCurScore();
+    //向数据库添加一条游戏记录
+    this.saveAnRecord();
   },
 
   //从数据库获取最高分
@@ -159,9 +162,9 @@ Page({
       success: (res) => {
         console.log(res.data)
         var tmp = -1
-        if (res.data.msg.max_grade === null) {
+        if (res.data.msg.max_grade === null) { // 若数据库中还没有记录过成绩，就把tmp赋值0
           tmp = 0
-        } else {
+        } else { // 否则赋值数据库中的成绩
           tmp = res.data.msg.max_grade
         }
 
@@ -198,6 +201,7 @@ Page({
 
   //保存当前分数到数据库
   saveCurScore() {
+    //更新user表中的数据
     wx.request({
       method: 'POST',
       url: 'http://127.0.0.1:3000/game/save',
@@ -213,6 +217,28 @@ Page({
       },
       fail: () => {
         console.log("成绩保存失败！")
+      }
+    })
+  },
+
+  //向record表添加数据
+  saveAnRecord() {
+    wx.request({
+      method: 'POST',
+      url: 'http://127.0.0.1:3000/record/save',
+      data: {
+        cur_grade: this.data.score, //成绩
+        create_time: util.formatTime(new Date()), //当前时间
+        id: app.globalData.user_id //当前用户的用户id
+      },
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      success: (res) => {
+        console.log(res)
+      },
+      fail: () => {
+        console.log("成绩记录保存失败！")
       }
     })
   },

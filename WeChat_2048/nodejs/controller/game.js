@@ -10,7 +10,7 @@ module.exports.save = async (req,res) => {
       res.json({
         status: "400",
         data: '保存成绩失败',
-        msg: ''
+        msg: error
       })
       console.log("保存成绩失败")
     }else { //成功
@@ -34,7 +34,7 @@ module.exports.saveMax = async (req,res) => {
       res.json({
         status: "400",
         data: '保存最高成绩失败',
-        msg: ''
+        msg: error
       })
       console.log("保存最高成绩失败")
     }else { //成功
@@ -58,7 +58,7 @@ module.exports.getMax = (req,res) => {
       res.json({
         status: "400",
         data: '获取最高成绩失败',
-        msg: ''
+        msg: error
       })
     }else { //成功
       console.log(result[0])
