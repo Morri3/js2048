@@ -27,11 +27,11 @@ const mysql = require('mysql') // 导入mysql模块
 // }
 
 var pool = mysql.createConnection({ // 创建mysql实例
-  host:'127.0.0.1',
-  port:'3306',
-  user:'root',
-  password:'root',
-  database:'wechat2048'
+  host: '127.0.0.1',
+  port: '3306',
+  user: 'root',
+  password: 'root',
+  database: 'wechat2048'
 });
 
 module.exports = {

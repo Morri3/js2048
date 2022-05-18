@@ -91,6 +91,8 @@ Page({
     })
     app.globalData.has=true;
     app.globalData.user=this.data.userInfo;
+
+    //跳转到首页
     wx.switchTab({
       url: '../game_entrance/entrance'
     })

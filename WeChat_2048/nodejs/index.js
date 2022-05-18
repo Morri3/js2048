@@ -90,6 +90,7 @@ var bodyParser =require('body-parser');
 require("./database/dbconfig.js");
 
 var userRouter = require('./router/user.js');
+var gameRouter = require('./router/game.js');
 
 //增加头部信息解决跨域问题
 app.all('*', function (req, res, next){
@@ -108,6 +109,8 @@ app.use(bodyParser.json());
 
 // 导入并使用用户路由模块
 app.use('/user', userRouter);
+// 导入并使用游戏路由模块
+app.use('/game', gameRouter);
 
 // 监听3000端口
 app.listen(3000, () => {
