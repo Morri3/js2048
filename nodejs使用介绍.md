@@ -2,7 +2,7 @@
 
 [TOC]
 
-### **创建nodejs过程**
+### **服务器配置过程**
 
 1、创建nodejs文件夹
 
@@ -63,9 +63,7 @@ app.listen(3000, () => {
 
 待看到nodemon的相关信息后表示打开成功
 
-
-
-### **配置mysql数据库**
+7、在nodejs文件夹中创建database文件夹，进入其中，创建dbconfig.js，配置数据库连接的相关信息（这里使用createConnection方法创建连接对象）
 
 ```js
 //nodejs/database/dbconfig.js
@@ -84,6 +82,10 @@ module.exports = {
   pool
 }
 ```
+
+8、在nodejs文件夹中创建router文件夹，进入其中，创建user.js文件，设置路由
+
+9、在nodejs文件夹中创建controller文件夹，进入其中，创建user.js文件，设置接受网络请求的方法
 
 
 
