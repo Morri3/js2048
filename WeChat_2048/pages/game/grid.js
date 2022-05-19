@@ -2,6 +2,7 @@ function Grid(size) {
   this.size = size; //棋盘的大小是size*size，即4*4，从manager.js传入
   this.grid = this.init(); //棋盘初始化
 }
+
 //Grid的原型。定义在原型对象上的所有属性和方法，都能被派生对象继承
 Grid.prototype = {
   //棋盘初始化
@@ -15,6 +16,7 @@ Grid.prototype = {
     }
     return grid;
   },
+
   //查找所有空格子
   findEmptyCell() {
     var emptyCells = [];
@@ -29,6 +31,7 @@ Grid.prototype = {
       }
     return emptyCells;
   },
+
   //从可使用的空格子中随机选一个
   selectCell() {
     var emptyCells = this.findEmptyCell(); //所有空格子
@@ -39,10 +42,12 @@ Grid.prototype = {
       //如emptyCells[2]表示第三个可用的空格子，存有该格子的x和y坐标值
     }
   },
+
   //判断格子是否是空的，不是返回true，否则返回false
   isCellEmpty() {
     return !this.findEmptyCell().length;
   }
 };
+
 //把Grid暴露出去让manager.js使用
 module.exports = Grid;

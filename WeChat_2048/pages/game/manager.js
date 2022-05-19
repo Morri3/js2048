@@ -5,6 +5,7 @@ function Manager(size) {
   this.fillNum = 2;//填充的个数。初始填充2个格子
   this.init();//初始化
 }
+
 //Manager的原型。定义在原型对象上的所有属性和方法，都能被派生对象继承
 Manager.prototype = {
   //初始化
@@ -14,6 +15,7 @@ Manager.prototype = {
     this.getRandomCell();//随机填充格子
     this.fillNum = 1;//初始化后的每一步都随机生成一个格子
   },
+
   //随机填充格子
   getRandomCell() {
     //刚开始游戏，fillNum是2，随机生成两个格子
@@ -22,6 +24,7 @@ Manager.prototype = {
       this.getRandomNumber();//填充数字
     }
   },
+
   //填充数字
   getRandomNumber() {
     if(!this.checkerboard.isCellEmpty()) {//棋盘有空的可用的格子，就添加数据
@@ -31,10 +34,12 @@ Manager.prototype = {
       this.updateCell(cell);//更新格子
     }
   },
+
   //更新数据。传入的参数是随机到的空格子
   updateCell(cell) {
     this.checkerboard.grid[cell.x][cell.y] = cell.val;
   },
+
   //上下左右移动格子
   move(direction) {
     //direction分别为 0:上, 1:右, 2:下, 3:左
@@ -70,6 +75,7 @@ Manager.prototype = {
     this.getRandomCell();//随机填充格子
     return res;
   },
+
   //根据滑动方向生成list的四个数组
   formList(direction) {
     var list=[];
@@ -123,6 +129,7 @@ Manager.prototype = {
     }
     return list;
   },
+
   //滑动时合并相同数字的格子
   merge(list) {//传入的参数是根据方向生成的list数组
     //遍历list的四个子数组
@@ -142,6 +149,7 @@ Manager.prototype = {
     }
     return list;
   },
+
   //改变数字位置
   changeItem(item) {//把['', 2, '', 2]改为[2, 2, '', '']
     var cnt = 0;//遍历的下标
@@ -161,6 +169,7 @@ Manager.prototype = {
     }
     return item;
   },
+
   //判断游戏是否结束，若可用格子为空且所有格子上下左右值不等，则游戏结束
   isOver() {
     this.checkerboard.__proto__ = this.bproto;//接下来能使用this.checkerboard的方法和属性
@@ -187,5 +196,6 @@ Manager.prototype = {
     return true;//若上下左右都没有可继续合并的格子且没有空格子，表明游戏结束
   }
 };
+
 //把Manager暴露出去让2048.js使用
 module.exports = Manager;
