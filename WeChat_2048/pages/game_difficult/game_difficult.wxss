@@ -104,10 +104,10 @@
   touch-action: none;
 }
 .gridCell {
-  width: 19vw;
-  height: 19vw; 
-  margin-left: 3vw;
-  margin-bottom: 3vw;
+  width: 15vw;
+  height: 15vw; 
+  margin-left: 2.5vw;
+  margin-bottom: 2.5vw;
   float: left;
   border-radius: 10px;
   box-sizing: border-box;
@@ -116,9 +116,9 @@
 }
 /*格子*/
 .cell {
-  width: 19vw;
-  height: 19vw; 
-  line-height: 19vw;/*行高*/
+  width: 15vw;
+  height: 15vw; 
+  line-height: 15vw;/*行高*/
   position: relative;
   font-size: 35px;
   font-weight: 600;

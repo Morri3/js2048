@@ -11,6 +11,11 @@ Page({
     })
   },
 
+  click_difficult(){
+    wx.navigateTo({
+      url: '/pages/game_difficult/game_difficult',
+    })
+  },
 
   click_ranking(){
     wx.navigateTo({

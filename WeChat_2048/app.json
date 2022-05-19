@@ -3,6 +3,7 @@
     "pages/goto_Login/goto_Login",
     "pages/game_entrance/entrance",
     "pages/game/game",
+    "pages/game_difficult/game_difficult",
     "pages/User/User",
     "pages/index/index",
     "pages/logs/logs",

@@ -15,6 +15,7 @@ page{
 .Btn_layout{
   display: flex;
   justify-content: center;
+  margin-top: -20px;
 }
 .StartBtn{
   width:375rpx;
@@ -31,9 +32,9 @@ page{
 }
 .Btnimg {
   /* position: absolute; */
-  height: 150rpx;
+  height: 120rpx;
   position: absolute;
-  width: 345rpx;
+  width: 330rpx;
 }
 
 .btn_text{

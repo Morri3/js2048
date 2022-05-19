@@ -5,7 +5,7 @@ var util = require('../../utils/util.js'); //引用util.js
 //设定在游戏中点击顶部导航栏返回到上一页，游戏成绩不记录数据库
 Page({
   data: {
-    size: 4, //棋盘大小
+    size: 5,//棋盘大小
     hidden: false, //是否显示加载中画面
     grids: [], //二维数组表示棋盘
     score: 0, //当前分数
@@ -150,11 +150,11 @@ Page({
     this.saveAnRecord();
   },
 
-  //从数据库获取最高分
+  //从数据库获取困难模式最高分
   getMaxScore() {
     wx.request({
       method: 'GET',
-      url: 'http://127.0.0.1:3000/game/getMax/' + app.globalData.user_id, //当前登录用户的id
+      url: 'http://127.0.0.1:3000/game/difficult/getMax/' + app.globalData.user_id, //当前登录用户的id
       //data:{},
       header: {
         'content-type': 'application/json'
@@ -162,10 +162,10 @@ Page({
       success: (res) => {
         console.log(res.data)
         var tmp = -1
-        if (res.data.msg.max_grade === null) { // 若数据库中还没有记录过成绩，就把tmp赋值0
+        if (res.data.msg.max_difficult_grade === null) { // 若数据库中还没有记录过成绩，就把tmp赋值0
           tmp = 0
         } else { // 否则赋值数据库中的成绩
-          tmp = res.data.msg.max_grade
+          tmp = res.data.msg.max_difficult_grade
         }
 
         this.setData({
@@ -173,7 +173,7 @@ Page({
         })
       },
       fail: () => {
-        console.log("普通模式最高成绩获取失败！")
+        console.log("困难模式最高成绩获取失败！")
       }
     })
   },
@@ -182,9 +182,9 @@ Page({
   saveMaxScore() {
     wx.request({
       method: 'POST',
-      url: 'http://127.0.0.1:3000/game/saveMax',
+      url: 'http://127.0.0.1:3000/game/difficult/saveMax',
       data: {
-        max_grade: this.data.score, //最高成绩
+        max_difficult_grade: this.data.score, //最高成绩
         id: app.globalData.user_id //当前用户的用户id
       },
       header: {
@@ -194,7 +194,7 @@ Page({
         console.log(res)
       },
       fail: () => {
-        console.log("普通模式最高成绩保存失败！")
+        console.log("困难模式最高成绩保存失败！")
       }
     })
   },
@@ -204,10 +204,10 @@ Page({
     //更新user表中的数据
     wx.request({
       method: 'POST',
-      url: 'http://127.0.0.1:3000/game/save',
+      url: 'http://127.0.0.1:3000/game/difficult/save',
       data: {
-        cur_grade: this.data.score, //成绩
-        id: app.globalData.user_id //当前用户的用户id
+        cur_difficult_grade: this.data.score, //成绩
+        id: app.globalData.user_id, //当前用户的用户id
       },
       header: {
         "Content-Type": "application/x-www-form-urlencoded"
@@ -216,7 +216,7 @@ Page({
         console.log(res)
       },
       fail: () => {
-        console.log("普通模式成绩保存失败！")
+        console.log("困难模式成绩保存失败！")
       }
     })
   },
@@ -225,12 +225,12 @@ Page({
   saveAnRecord() {
     wx.request({
       method: 'POST',
-      url: 'http://127.0.0.1:3000/record/save',
+      url: 'http://127.0.0.1:3000/record/difficult/save',
       data: {
         cur_grade: this.data.score, //成绩
         create_time: util.formatTime(new Date()), //当前时间
         id: app.globalData.user_id, //当前用户的用户id
-        game_mode: 0 //游戏模式（0为普通模式）
+        game_mode: 1 //游戏模式（1为困难模式）
       },
       header: {
         "Content-Type": "application/x-www-form-urlencoded"
@@ -239,7 +239,7 @@ Page({
         console.log(res)
       },
       fail: () => {
-        console.log("普通模式成绩记录保存失败！")
+        console.log("困难模式成绩记录保存失败！")
       }
     })
   },

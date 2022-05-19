@@ -1,0 +1,61 @@
+<view class="game-container">
+  <!--加载画面-->
+  <loading hidden="{{hidden}}">
+    正在加载中...
+  </loading>
+
+  <!--顶部-->
+  <view class="top">
+    <!--顶部左侧-->
+    <view class="topLeft">
+      <text class='title'>2048</text>
+      <view class="restartGane" bindtap="start">重新开始</view>
+    </view>
+    
+    <!--顶部右侧-->
+    <view class="topRight">
+      <!--当前成绩-->
+      <view class="curScore">
+        <view class="curScoreTitle">当前得分</view>
+        <view class="curScoreText">{{score}}</view>
+      </view>
+
+      <!--最好成绩-->
+      <view class="bestScore">
+        <view class="bestScoreTitle">最高分</view>
+        <view class="bestScoreText">{{maxScore}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!--棋盘部分-->
+  <view class="middle">
+    <view class="grid" bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd">
+      <!--for循环遍历grids二维数组-->
+      <view class="gridRow" wx:for="{{grids}}" wx:for-item="row" wx:for-index="rowIdx">
+        <!--for循环遍历每行   row表示行，col表示列，cell表示一个格子-->
+        <view class="gridCell" wx:for="{{row}}" wx:for-index="colIdx" wx:for-item="cell">
+          <view class='cell cell-{{cell}}'>
+            <!--格子不为0就显示-->
+            <view wx:if="{{cell}}">{{cell}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!--游戏结束了就显示蒙版和弹窗-->
+  <!--蒙版-->
+  <view class="mask" catchtouchmove='ture' wx:if="{{isFinished}}"></view>
+  <!--弹窗-->
+  <view class="modalDlg" wx:if="{{isFinished}}">
+    <view class="modaltitle">{{tip}}</view>
+    <view class="msgout" style="margin-top: 60rpx;">当前得分：{{score}}分</view>
+    <view class="msgout">最高分：<view class="twomsg">{{maxScore}}分</view></view>
+    <view class="twobtn">
+      <button class="btnrestart" style="width: 250rpx;" bindtap="restart">重新开始</button>
+      <button class="btnclose" style="width: 250rpx;margin-left: 20rpx;" bindtap="close">关闭</button>
+    </view>
+  </view>
+
+</view>

@@ -1,7 +1,8 @@
-<!-- <view class="title">2048</view> -->
 <view class="top_layout">
   <image class="game_pic" src="../../icon/2048.webp"></image>
 </view>
+
+<!--开始游戏-->
 <view class="Btn_layout">
   <view class="StartBtn" bindtap="click" hoverClass="btn-hover-opacity">
     <image class="Btnimg" src="../../icon/button_blue.png"></image>
@@ -9,6 +10,15 @@
   </view>
 </view>
 
+<!--困难模式-->
+<view class="Btn_layout">
+  <view class="StartBtn" bindtap="click_difficult" hoverClass="btn-hover-opacity">
+    <image class="Btnimg" src="../../icon/button_blue.png"></image>
+    <view class="btn_text" >困难模式</view>
+  </view>
+</view>
+
+<!--排行榜-->
 <view class="Btn_layout">
   <view class="StartBtn" bindtap="click_ranking" hoverClass="btn-hover-opacity">
     <image class="Btnimg" src="../../icon/button_blue.png"></image>
