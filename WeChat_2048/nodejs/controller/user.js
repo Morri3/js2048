@@ -1,7 +1,7 @@
 let { pool } = require("../database/dbconfig.js")
 
 
-//查询用户（还没有作是否存在于db中等判断）
+//查询用户
 module.exports.get = (req,res) =>{
   console.log(req.params)
   let params = [req.params.u_username,req.params.u_pwd] //sql语句参数

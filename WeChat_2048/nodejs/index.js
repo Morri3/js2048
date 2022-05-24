@@ -68,7 +68,6 @@
 // //   res.render('error');
 // // });
 
-
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser'); /*中间件用于处理JSON,Raw,Text和URL编码的数据*/

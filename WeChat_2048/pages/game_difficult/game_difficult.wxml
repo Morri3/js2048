@@ -9,7 +9,7 @@
     <!--顶部左侧-->
     <view class="topLeft">
       <text class='title'>2048</text>
-      <view class="restartGane" bindtap="start">重新开始</view>
+      <view class="restartGane" bindtap="start" hoverClass="hover">重新开始</view>
     </view>
     
     <!--顶部右侧-->
