@@ -4,8 +4,28 @@ Page({
   data: {
     user:[
       {}
-    ]
+    ],
+    user_diff:[
+      {}
+    ],
+    model:0
   },
+
+
+  simple_model:function(){
+    this.setData({
+      model:0
+    })
+    console.log("model:"+this.data.model)
+  },
+
+  difficult_model:function(){
+    this.setData({
+      model:1
+    })
+    console.log("model:"+this.data.model)
+  },
+
 
   getAllUser:function(options){
     console.log(this.data.user)
@@ -13,6 +33,9 @@ Page({
 
   sortByScore:(a,b) =>{
     return b.max_grade - a.max_grade
+  },
+  sortByScoreDiff:(a,b) =>{
+    return b.max_difficult_grade - a.max_difficult_grade
   },
 
   /**
@@ -29,12 +52,16 @@ Page({
       },
       success: (res) =>{
         var users = []
+        var users_diff = []
         for(var i = 0; i < res.data.msg.length; i++){
           users.push(res.data.msg[i])
+          users_diff.push(res.data.msg[i])
         }
         users.sort(this.sortByScore)
+        users_diff.sort(this.sortByScoreDiff)
         this.setData({
-          user:users
+          user:users,
+          user_diff:users_diff
         })
       },
       fail:() =>{
@@ -43,52 +70,4 @@ Page({
     })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

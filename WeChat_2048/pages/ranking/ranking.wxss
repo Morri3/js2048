@@ -74,3 +74,9 @@ page{
   font-size: 40rpx;
   font-weight:600;
 }
+.model_select{
+  display: flex;
+  align-items: center;
+  height: fit-content;
+  margin-left: 1%;
+}

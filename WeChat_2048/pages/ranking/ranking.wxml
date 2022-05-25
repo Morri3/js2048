@@ -1,9 +1,17 @@
 <view class="topview">
   <image class="topview_img" src="../../icon/rank.png"></image>
 </view>
-
+<view class="model_select">
+  <view>
+    <button bindtap="simple_model">简单模式</button>
+  </view>
+  <view>
+    <button bindtap="difficult_model">困难模式</button>
+  </view>
+</view>
 <view class="rankingview">
-  <view class="user" wx:for="{{user}}" wx:for-item="item" wx:for-index="index">
+  <!-- 简单模式 -->
+  <view class="user" wx:for="{{user}}" wx:for-item="item" wx:for-index="index" wx:if="{{model == 0}}">
     <view class="ranking_no">
       {{index + 1}}
     </view>
@@ -15,6 +23,22 @@
     </view>
     <view class="score">
       {{item.max_grade}}
+    </view>
+    <view class="fen">分</view>
+  </view>
+  <!-- 困难模式 -->
+  <view class="user" wx:for="{{user_diff}}" wx:for-item="item" wx:for-index="index" wx:if="{{model == 1}}">
+    <view class="ranking_no">
+      {{index + 1}}
+    </view>
+    <view class="imgview">
+      <image class="user_img" src="{{item.user_img}}"></image>
+    </view>
+    <view class="user_name">
+      {{item.user_name}}
+    </view>
+    <view class="score">
+      {{item.max_difficult_grade}}
     </view>
     <view class="fen">分</view>
   </view>

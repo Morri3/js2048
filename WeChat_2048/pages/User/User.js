@@ -7,10 +7,14 @@ Page({
     canIUseGetUserProfile: false,
   },
   onLoad(options) {
+
       this.setData({
         canIUseGetUserProfile: true,
         hasUserInfo:app.globalData.has,
         userInfo:app.globalData.user
+
       })
+
+      console.log("user_name:"+this.data.userInfo.nickName)
   }
 })
