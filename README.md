@@ -1,3 +1,2 @@
 # js2048
-跨平台脚本开发
-微信小程序版2048游戏
+2048 game(WeChat mini program)
