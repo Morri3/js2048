@@ -1,2 +1,2 @@
 # js2048
-2048 game(WeChat mini program)
+This is a project about the 2048 game, implemented by WeChat mini program.
